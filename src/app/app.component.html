@@ -1,0 +1,64 @@
+<div class="main-container">
+  <div class="input-container">
+    <input class="inputText" #inputText type="text">
+  </div>
+  <div class="table-container" *ngIf="!showUserDetails">
+    <!-- <ng-container *ngIf="apiData.length>0"> -->
+    <ng-container *ngFor="let data of apiData">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Login
+            </th>
+            <th>
+              Avatar URL
+            </th>
+            <th>
+              Events URL
+            </th>
+            <th>
+              Followers URL
+            </th>
+            <th>
+              Following URL
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="login" (click)="loginHanlder(data.login)">
+              {{data.login}}
+            </td>
+            <td class="avatar" (click)="loginHanlder(data.login)">
+              <a>
+                {{data.avatar_url}}
+              </a>
+            </td>
+            <td (click)="loginHanlder(data.login)">
+              {{data.events_url}}
+            </td>
+            <td (click)="loginHanlder(data.login)">
+              {{data.followers_url}}
+            </td>
+            <td (click)="loginHanlder(data.login)">
+              {{data.following_url}}
+            </td>
+            <td (click)="loginHanlder(data.login)">
+              {{data.gists_url}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <!-- </ng-container> -->
+  </div>
+
+  <div *ngIf="showUserDetails">
+    {{userDetails.login}}
+    {{userDetails.id}}
+    {{userDetails.node_id}}
+    {{userDetails.avatar_url}}
+    {{userDetails.html_url}}
+  </div>
+</div>
